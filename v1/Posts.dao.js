@@ -1,7 +1,7 @@
 const Post = require("../connectdb").db("myFirstDatabase").collection("baiviet");
 const ObjectID = require('mongodb').ObjectId;
-const save = async({tentk,noidung,anh}) => {
-    const result = await Post.insertOne({tentk,noidung,anh});
+const save = async({name,photos,address,friends,retionsip,follows}) => {
+    const result = await Post.insertOne({name,photos,address,friends,retionsip,follows});
     return result.ops[0];
 }
 const getAll = async() => {
@@ -11,8 +11,8 @@ const getAll = async() => {
 const getById = async id => {
     return await Post.findOne({_id:ObjectID(id)});
 }
-const update = async(id, {tentk,noidung,anh}) => {
-    const result = await Post.replaceOne({_id:ObjectID(id)} , {tentk,noidung,anh});
+const update = async(id, {name,photos,address,friends,retionsip,follows}) => {
+    const result = await Post.replaceOne({_id:ObjectID(id)} , {name,photos,address,friends,retionsip,follows});
 }
 const removeById = async id => {
     await Post.deleteOne({_id:ObjectID(id)});
