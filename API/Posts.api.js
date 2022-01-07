@@ -1,17 +1,15 @@
 const{save,getAll,getById,update,removeById} = require('../v1/Posts.dao');
-const createPost = async({tentk,noidung,anh}) => {
+const createPost = async({name,photos,address,friends,retionsip,follows}) => {
     const newtk = {
-        tentk,
-        noidung,
-        anh
+        name,photos,address,friends,retionsip,follows
     }
     return await save(newtk);
 }
 const getPost = async() => {
     return await getAll();
 }
-const updatePost = async(id,{tentk,noidung,anh}) => {
-    return await update(id,tentk,noidung,anh);
+const updatePost = async(id,{name,photos,address,friends,retionsip,follows}) => {
+    return await update(id,name,photos,address,friends,retionsip,followsh);
 }
 const deletePost = async (id) => {
     return await removeById(id);
